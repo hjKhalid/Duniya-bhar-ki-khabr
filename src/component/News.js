@@ -12,8 +12,8 @@ export default class News extends Component {
         }
     }
     async componentDidMount() {
-        let url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=7e1aec59a251435dbe386f7ff6b7656f";
-        let newResponse = await fetch(url);
+        let newsUrl = "https://newsapi.org/v2/top-headlines?country=in&apiKey=7e1aec59a251435dbe386f7ff6b7656f";
+        let newResponse = await fetch(newsUrl);
         let newResponseJson= await newResponse.json()
         console.log(newResponseJson);
         // console.log("state.articles: "+articles);
