@@ -1,35 +1,21 @@
-// /
-// import axios from 'axios';
-// import React from 'react';
 
-// class api extends React.Component {
- 
-//   componentDidMount() {
+import axios from 'axios';
+import { useState ,useEffect} from 'react';
 
-//      axios
-//       .get("https://newsapi.org/v2/top-headlines?country=us&apiKey=7e1aec59a251435dbe386f7ff6b7656f")
-//       .then(response => {
-//         this.setState({ data: response.data });
-//       })
-//       .catch(error => {
-//         console.log(error);
-//       });
-//   }
- 
 
-//   render() {
-//     return (<>
-//       <div>
-//         {this.state.data.map((item) => (
-//           <div key={item.id}>
-//             <h2>{item.title}</h2>
-//             <p>{item.body}</p>
-//           </div>
-//         ))}
-//       </div>
-//       </>
-//     );
-//   }
-// }
-// export default api;
 
+
+
+
+
+//  const [news, setNews] = useState("");  
+ export  let news=[]  ;
+  axios.get('https://newsapi.org/v2/top-headlines?country=in&apiKey=7e1aec59a251435dbe386f7ff6b7656f').then((response => {
+
+    //  console.log(response)
+    news.push(response.data.articles)
+  })).catch((error) => {
+    console.log(error.response)
+  })
+
+console.log(news);
