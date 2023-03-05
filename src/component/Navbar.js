@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -16,8 +17,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import SportsKabaddiIcon from '@mui/icons-material/SportsKabaddi';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import ScienceIcon from '@mui/icons-material/Science';
@@ -70,9 +69,12 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
+
+
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+ 
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -81,6 +83,13 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  
+const [sport,setSport]=useState(""); 
+const handleOnClickSport=()=>{
+  setSport("sport")
+}
+ 
+
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -125,9 +134,9 @@ export default function PersistentDrawerLeft() {
         <Divider />
         <h6 className='mx-4'>Hot-Topics</h6>
         <List>
-          {['Sport', 'History', 'AI'].map((text,index) => (
+          {['Sport', 'History'].map((text,index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton>
+              <ListItemButton onClick={handleOnClickSport}>
                 <ListItemIcon>
                   {index % 3 === 0 ? <SportsKabaddiIcon/>: <HistoryEduIcon/>}
                 </ListItemIcon>
