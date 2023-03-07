@@ -1,13 +1,19 @@
 import React from 'react'
 import Navbar from './component/Navbar'
 import Card from './component/Card'
+import Sports from './component/Sports'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import History from './component/History'
+
 import Curosal from './component/Curosal'
-import Pagination from '@mui/material/Pagination';
+
 import Weather from './component/Weather'
 import news from './component/api'
 import Stack from '@mui/material/Stack';
+import TopHeadline from './component/TopHeadline'
+import Science from './component/Science'
+import Meta from './component/Meta'
+import AI from './component/AI'
 
 
 export const WeatherIcons = {
@@ -30,61 +36,37 @@ export const WeatherIcons = {
 
 
 function App(props) {
-  const [news, setNews] = useState("");
-  const [crypto, setCrypto] = useState("");
-
-  useEffect(() => {
-
-    axios.get('https://newsapi.org/v2/everything?q=tesla&from=2023-02-05&sortBy=publishedAt&apiKey=7e1aec59a251435dbe386f7ff6b7656f').then((response => {
-
-      //  console.log(response)
-      setNews(response.data.articles)
-    })).catch((error) => {
-      console.log(error.response)
-    })
-
-
-  })
-  console.log(news);
 
 
 
-  const handleOnClick = () => {
 
-  }
+
+  //   axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=fa8a466d0617440daa4e5d4d39bba824&pageSize=6').then((response => {
+
+  //     //  console.log(response)
+  //     setNews(response.data.articles)
+  //   })).catch((error) => {
+  //     console.log(error.response)
+  //   })
+
+
+  // console.log(news)
 
 
   return (
     <div><Navbar />
-
-      <div className='container' style={{ justifyItems: "self-end", fontStyle: "italic", color: "red" }}>{Date(Date.now()).toString()}</div>
-      {/* <Curosal imageUrl={news.imageUrl} alt="" title="" description=""/> */}
+      <div className='container' style={{ justifyItems: "self-end", fontStyle: "italic", color: "red" }}>{Date(Date.now()).toString().slice(0, 18)}</div>
+      {/* <Curosal  imageUrl={news[1].urlToImage?news[1].urlToImage:""} alt="mala" title={news[1].title?news[1].title:""} description={news[1].description?news[1].description:""}/> */}
       <h1 className='' style={{ fontFamily: "cursive", textAlign: "center" }}>Top Headlines</h1>
-
-      <div className='d-flex align-content-stretch flex-wrap container my-3' style={{ justifyContent: "center" }}>
-        {news ? news.map((e, i) =>
-          <div className='mx-3 my-3'>
-            <div className=''>
-              <Card key={i} title={e.title ? e.title : ""} imageUrl={e.urlToImage ? e.urlToImage : ""} BriefDiscription={e.description ? e.description : ""} />
-
-            </div>
-          </div>
-
-        ) : <div className='container'>
-          <Card title="" imageUrl="" BriefDiscription="" />
-        </div>}
-        <div className='container my-4' style={{ justifyContent: "center" }}>
-          <Pagination count={10} color="primary" onClick={handleOnClick} />
-        </div>
-
-        <div>
-          <Weather />
-        </div>
-
+      <TopHeadline />
+      <Sports />
+      <History/>
+      <Science/>
+      <Meta/>
+      <AI/>
+      <div>
+        <Weather />
       </div>
-
-
-
     </div>
   )
 
