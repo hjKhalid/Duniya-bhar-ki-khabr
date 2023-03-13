@@ -64,7 +64,7 @@ function App(props) {
       <Science/>
       <Meta/>
       <AI/>
-      <div>
+      <div className='container'>
         <Weather />
       </div>
     </div>
