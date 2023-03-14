@@ -2,7 +2,8 @@ import React from 'react'
 import Card from './Card'
 // import axios from 'axios'
 import { useState } from 'react'
-import Pagination from '@mui/material/Pagination';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 export function Sports(props) {
   const [sport, setSport] = useState("");
@@ -48,8 +49,15 @@ export function Sports(props) {
           </div>}
         </div>
         <div className='container my-4' style={{ justifyContent: "center" }}>
-        <Pagination count={10} color="primary"  />
-      </div>
+
+<ArrowForwardIosIcon />
+
+
+<ArrowBackIosNewIcon />
+
+
+
+</div>
       </div>
     </div>
   )

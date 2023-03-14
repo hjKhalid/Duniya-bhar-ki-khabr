@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
-import  Card  from './Card';
+import Card from './Card';
 import axios from 'axios';
-import Pagination from '@mui/material/Pagination';
-
-export  function History() {
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+export function History() {
     const [history, setHistory] = useState("");
     async function GetUser() {
 
         try {
-          const response = await axios.get(' https://newsapi.org/v2/everything?q=history&from=2023-02-07&sortBy=publishedAt&apiKey=bfe95d1f7a6840ab81cb77d2dc80414e&pageSize=6');
-          setHistory(response.data.articles);
+            const response = await axios.get(' https://newsapi.org/v2/everything?q=history&from=2023-02-07&sortBy=publishedAt&apiKey=bfe95d1f7a6840ab81cb77d2dc80414e&pageSize=6');
+            setHistory(response.data.articles);
         } catch (error) {
-          console.error(error);
+            console.error(error);
         }
-      }
-    
-      GetUser()
+    }
+
+    GetUser()
     return (
         <div>
             <div className='sport'>
@@ -34,11 +34,18 @@ export  function History() {
                     </div>}
                 </div>
                 <div className='container my-4' style={{ justifyContent: "center" }}>
-        <Pagination count={10} color="primary"  />
-      </div>
+
+                    <ArrowForwardIosIcon />
+
+
+                    <ArrowBackIosNewIcon />
+
+
+
+                </div>
             </div>
-            </div>
-            )
+        </div>
+    )
 }
 
-            export default History
+export default History

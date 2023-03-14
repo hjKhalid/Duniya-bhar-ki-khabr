@@ -1,16 +1,17 @@
-import React, { useState ,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import Card from './Card';
 import axios from 'axios';
-import Pagination from '@mui/material/Pagination';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 export function Meta() {
     const [meta, setMeta] = useState("");
-    // const [page, setPage] = ("1");
- let page=2;
+    const [page, setPage] = ("");
+
     // const handleOnclick = async() => {
-       
+
     //    const url = `https://newsapi.org/v2/top-headlines?country=in&category=bitcoin&apiKey=d8fdb92a19454a4d93f5714f2c54a1b4&page=${page+1}&pageSize=6`;
-       
+
     //     try {
     //         const response = await axios.get(url);
     //         setMeta(response.data.articles);
@@ -18,19 +19,24 @@ export function Meta() {
     //         console.error(error);
     //     }
     // }
-    useEffect(()=>{
-        const url = `https://newsapi.org/v2/top-headlines?country=in&category=bitcoin&apiKey=d8fdb92a19454a4d93f5714f2c54a1b4&page=${page+1}&pageSize=6`;
-       async function fetchData(){
-        try {
-            const response = await axios.get(url);
-            setMeta(response.data.articles);
-        } catch (error) {
-            console.error(error);
-        }
+    function countPage(event) {
+        setPage(event.target.value);
+    }
+    console.log(page);
 
-       }
-       fetchData();
-    },[])
+    useEffect(() => {
+        const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=d8fdb92a19454a4d93f5714f2c54a1b4&page=${3}&pageSize=6`;
+        async function fetchData() {
+            try {
+                const response = await axios.get(url);
+                setMeta(response.data.articles);
+            } catch (error) {
+                console.error(error);
+            }
+
+        }
+        fetchData();
+    }, [])
 
     return (
         <div>
@@ -50,7 +56,14 @@ export function Meta() {
                     </div>}
                 </div>
                 <div className='container my-4' style={{ justifyContent: "center" }}>
-                    <Pagination count={10} color="primary"  />
+
+                    <ArrowForwardIosIcon />
+
+
+                    <ArrowBackIosNewIcon />
+
+
+
                 </div>
             </div>
         </div>
