@@ -8,8 +8,7 @@ import History from './component/History'
 import Curosal from './component/Curosal'
 
 import Weather from './component/Weather'
-import news from './component/api'
-import Stack from '@mui/material/Stack';
+
 import TopHeadline from './component/TopHeadline'
 import Science from './component/Science'
 import Meta from './component/Meta'
