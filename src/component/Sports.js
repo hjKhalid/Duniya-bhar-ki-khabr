@@ -1,21 +1,35 @@
 import React from 'react'
 import Card from './Card'
-import axios from 'axios'
+// import axios from 'axios'
 import { useState } from 'react'
+import Pagination from '@mui/material/Pagination';
 
-export function Sports() {
+export function Sports(props) {
   const [sport, setSport] = useState("");
-  async function GetUser() {
+  let page=1
 
-    try {
-      const response = await axios.get(' https://newsapi.org/v2/everything?q=sport&from=2023-02-07&sortBy=publishedAt&apiKey=bfe95d1f7a6840ab81cb77d2dc80414e&pageSize=6');
-      setSport(response.data.articles);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  // const [page,setPage]=(1);
+  // async function GetUser() {
 
-  GetUser()
+  //   try {
+  //     const response = await axios.get(' https://newsapi.org/v2/everything?q=sport&from=2023-02-07&sortBy=publishedAt&apiKey=bfe95d1f7a6840ab81cb77d2dc80414e&pageSize=6');
+  //     setSport(response.data.articles);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+
+  // GetUser()
+  
+  const fetchMoreData = async () => {   
+    const url = `https://newsapi.org/v2/top-headlines?country=in&category=sport&apiKey=f0fbe658187c430594be37270ae7d5c1&page=${page+1}&pageSize=6`;
+     
+    let data = await fetch(url);
+    let parsedData = await data.json()
+    setSport(parsedData.articles)
+    // setTotalResults(parsedData.totalResults)
+  };
+  // fetchMoreData();
   return (
     <div>
       <div className='sport'>
@@ -33,6 +47,9 @@ export function Sports() {
             <Card title="" imageUrl="" BriefDiscription="" />
           </div>}
         </div>
+        <div className='container my-4' style={{ justifyContent: "center" }}>
+        <Pagination count={10} color="primary"  />
+      </div>
       </div>
     </div>
   )

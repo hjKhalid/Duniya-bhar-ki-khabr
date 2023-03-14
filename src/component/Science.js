@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import  Card  from './Card';
 import axios from 'axios';
+import Pagination from '@mui/material/Pagination';
 
 export  function Science() {
     const [science, setSeince] = useState("");
@@ -32,6 +33,9 @@ export  function Science() {
                         <Card title="" imageUrl="" BriefDiscription="" />
                     </div>}
                 </div>
+                <div className='container my-4' style={{ justifyContent: "center" }}>
+        <Pagination count={10} color="primary"  />
+      </div>
             </div>
             </div>
             )

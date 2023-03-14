@@ -1,20 +1,37 @@
-import React, { useState } from 'react'
-import  Card  from './Card';
+import React, { useState ,useEffect} from 'react'
+import Card from './Card';
 import axios from 'axios';
+import Pagination from '@mui/material/Pagination';
 
 export function Meta() {
-const [meta, setMeta] = useState("");
-    async function GetUser() {
-
+    const [meta, setMeta] = useState("");
+    // const [page, setPage] = ("1");
+ let page=2;
+    // const handleOnclick = async() => {
+       
+    //    const url = `https://newsapi.org/v2/top-headlines?country=in&category=bitcoin&apiKey=d8fdb92a19454a4d93f5714f2c54a1b4&page=${page+1}&pageSize=6`;
+       
+    //     try {
+    //         const response = await axios.get(url);
+    //         setMeta(response.data.articles);
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // }
+    useEffect(()=>{
+        const url = `https://newsapi.org/v2/top-headlines?country=in&category=bitcoin&apiKey=d8fdb92a19454a4d93f5714f2c54a1b4&page=${page+1}&pageSize=6`;
+       async function fetchData(){
         try {
-          const response = await axios.get(' https://newsapi.org/v2/everything?q=bitcoin&from=2023-02-07&sortBy=publishedAt&apiKey=bfe95d1f7a6840ab81cb77d2dc80414e&pageSize=6');
-          setMeta(response.data.articles);
+            const response = await axios.get(url);
+            setMeta(response.data.articles);
         } catch (error) {
-          console.error(error);
+            console.error(error);
         }
-      }
-    
-      GetUser()
+
+       }
+       fetchData();
+    },[])
+
     return (
         <div>
             <div className='sport'>
@@ -32,9 +49,12 @@ const [meta, setMeta] = useState("");
                         <Card title="" imageUrl="" BriefDiscription="" />
                     </div>}
                 </div>
+                <div className='container my-4' style={{ justifyContent: "center" }}>
+                    <Pagination count={10} color="primary"  />
+                </div>
             </div>
-            </div>
-            )
+        </div>
+    )
 }
 
-            export default Meta
+export default Meta
