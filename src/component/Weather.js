@@ -11,7 +11,7 @@ import WeatherComponent from "./WeatherInfoComponent";
 
 export const WeatherIcons = {
     "01n": "./icons/night.svg",
-    "01n": "./icons/night.svg",
+   
     "02d": "./icons/day.svg",
     "02n": "./icons/cloudy-night.svg",
     "03d": "./icons/cloudy.svg",
@@ -41,19 +41,19 @@ export const WeatherIcons = {
     font-family: Montserrat;
   `;
   
-  const AppLabel = styled.span`
-    color: black;
-    margin: 20px auto;
-    font-size: 18px;
-    font-weight: bold;
-  `;
-  const CloseButton = styled.span`
-    padding: 2px 3px;
-    background-color: black;
-    border-radius: 50%;
-    color: white;
-    position: absolute;
-  `;
+  // const AppLabel = styled.span`
+  //   color: black;
+  //   margin: 20px auto;
+  //   font-size: 18px;
+  //   font-weight: bold;
+  // `;
+  // const CloseButton = styled.span`
+  //   padding: 2px 3px;
+  //   background-color: black;
+  //   border-radius: 50%;
+  //   color: white;
+  //   position: absolute;
+  // `;
   
 export const Weather = () => {
     const [city, updateCity] = useState();

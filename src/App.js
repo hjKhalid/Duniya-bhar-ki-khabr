@@ -1,11 +1,11 @@
 import React from 'react'
 import Navbar from './component/Navbar'
-import Card from './component/Card'
+// import Card from './component/Card'
 import Sports from './component/Sports'
-import axios from 'axios'
+// import axios from 'axios'
 import History from './component/History'
 
-import Curosal from './component/Curosal'
+// import Curosal from './component/Curosal'
 
 import Weather from './component/Weather'
 
@@ -17,7 +17,7 @@ import AI from './component/AI'
 
 export const WeatherIcons = {
   "01n": "./icons/night.svg",
-  "01n": "./icons/night.svg",
+
   "02d": "./icons/day.svg",
   "02n": "./icons/cloudy-night.svg",
   "03d": "./icons/cloudy.svg",

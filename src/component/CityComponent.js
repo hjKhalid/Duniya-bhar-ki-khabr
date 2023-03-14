@@ -43,7 +43,7 @@ const WelcomeWeatherLogo = styled.img`
 `;
 
 const CityComponent = (props) => {
-    const { updateCity, fetchWeather, updateDay } = props;
+    const { updateCity, fetchWeather} = props;
   return (
     <>
     <WelcomeWeatherLogo src={"/icons/perfect-day.svg"} />
