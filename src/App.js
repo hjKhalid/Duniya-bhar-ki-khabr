@@ -1,17 +1,10 @@
 import React from 'react'
 import Navbar from './component/Navbar'
-// import Card from './component/Card'
 import Sports from './component/Sports'
-// import axios from 'axios'
 import History from './component/History'
-
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
-
-// import Curosal from './component/Curosal'
-
 import Weather from './component/Weather'
-
 import TopHeadline from './component/TopHeadline'
 import Science from './component/Science'
 import Meta from './component/Meta'
@@ -39,21 +32,7 @@ export const WeatherIcons = {
 
 function App(props) {
 
-
-
-
-
-  //   axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=fa8a466d0617440daa4e5d4d39bba824&pageSize=6').then((response => {
-
-  //     //  console.log(response)
-  //     setNews(response.data.articles)
-  //   })).catch((error) => {
-  //     console.log(error.response)
-  //   })
-
-
-  // console.log(news)
-  const scrollAi=()=>{
+  const scrollAi = () => {
     const element1 = document.getElementById('section_ai');
     if (element1) {
       // 👇 Will scroll smoothly to the top of the next section
@@ -61,7 +40,8 @@ function App(props) {
     }
 
   }
-  const scrollHistory=()=>{
+
+  const scrollHistory = () => {
     const element2 = document.getElementById('section_history');
     if (element2) {
       // 👇 Will scroll smoothly to the top of the next section
@@ -69,61 +49,64 @@ function App(props) {
     }
 
   }
- const scrollMeta=()=>{
-  const element3 = document.getElementById('section_meta');
-  if (element3) {
-    // 👇 Will scroll smoothly to the top of the next section
-    element3.scrollIntoView({ behavior: 'smooth' });
+
+  const scrollMeta = () => {
+    const element3 = document.getElementById('section_meta');
+    if (element3) {
+      // 👇 Will scroll smoothly to the top of the next section
+      element3.scrollIntoView({ behavior: 'smooth' });
+    }
+
   }
 
- }
- const scrollScience=()=>{
-  const element4 = document.getElementById('section_science');
-  if (element4) {
-    // 👇 Will scroll smoothly to the top of the next section
-    element4.scrollIntoView({ behavior: 'smooth' });
+  const scrollScience = () => {
+    const element4 = document.getElementById('section_science');
+    if (element4) {
+      // 👇 Will scroll smoothly to the top of the next section
+      element4.scrollIntoView({ behavior: 'smooth' });
+    }
+
   }
 
- }
- const scrollSport=()=>{
-  const element = document.getElementById('section_sport');
-  if (element) {
-    // 👇 Will scroll smoothly to the top of the next section
-    element.scrollIntoView({ behavior: 'smooth' });
+  const scrollSport = () => {
+    const element = document.getElementById('section_sport');
+    if (element) {
+      // 👇 Will scroll smoothly to the top of the next section
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+
   }
 
- }
-  
   return (
     <div><Navbar />
-     <div className='container' style={{ justifyItems: "self-end", fontStyle: "italic", color: "red" }}>{Date(Date.now()).toString().slice(0, 18)}</div>
-    <div className=' container btn' style={{alignItems:"center", margin:"0rem 3rem 5rem",padding:"0rem 2rem 0rem 5rem"}}>
-     <ButtonGroup variant="contained" aria-label="outlined primary button group">
-      <Button className='mx-2' onClick={scrollSport}>Sport</Button>
-      <Button className='mx-2' onClick={scrollHistory}>History</Button>
-      <Button className='mx-2' onClick={scrollScience}>Science</Button>
-      <Button className='mx-2' onClick={scrollAi}>AI</Button>
-      <Button className='mx-2'onClick={scrollMeta}>Meta</Button>
-    </ButtonGroup>
-    </div>
-     
+      <div className='container' style={{ justifyItems: "self-end", fontStyle: "italic", color: "red" }}>{Date(Date.now()).toString().slice(0, 18)}</div>
+      <div className=' container btn' style={{ alignItems: "center", margin: "0rem 3rem 5rem", padding: "0rem 2rem 0rem 5rem" }}>
+        <ButtonGroup variant="contained" aria-label="outlined primary button group">
+          <Button className='mx-2' onClick={scrollSport}>Sport</Button>
+          <Button className='mx-2' onClick={scrollHistory}>History</Button>
+          <Button className='mx-2' onClick={scrollScience}>Science</Button>
+          <Button className='mx-2' onClick={scrollAi}>AI</Button>
+          <Button className='mx-2' onClick={scrollMeta}>Meta</Button>
+        </ButtonGroup>
+      </div>
+
       {/* <Curosal  imageUrl={news[1].urlToImage?news[1].urlToImage:""} alt="mala" title={news[1].title?news[1].title:""} description={news[1].description?news[1].description:""}/> */}
       <h1 className='' style={{ fontFamily: "cursive", textAlign: "center" }}>Top Headlines</h1>
       <TopHeadline />
-     <div id='section_sport'>
-      <Sports />
+      <div id='section_sport'>
+        <Sports />
       </div>
       <div id='section_history'>
-      <History/>
+        <History />
       </div>
       <div id='section_science'>
-      <Science/>
+        <Science />
       </div>
       <div id='section_meta'>
-      <Meta/>
+        <Meta />
       </div>
       <div id='section_ai'>
-      <AI/>
+        <AI />
       </div>
       <div>
         <Weather />
