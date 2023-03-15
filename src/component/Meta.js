@@ -25,7 +25,7 @@ export function Meta() {
     console.log(page);
 
     useEffect(() => {
-        const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=d8fdb92a19454a4d93f5714f2c54a1b4&page=${3}&pageSize=6`;
+        const url = ` https://newsapi.org/v2/everything?q=bitcoin&apiKey=d8fdb92a19454a4d93f5714f2c54a1b4&page=${3}&pageSize=6`;
         async function fetchData() {
             try {
                 const response = await axios.get(url);

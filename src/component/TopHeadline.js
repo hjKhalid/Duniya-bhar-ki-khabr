@@ -1,28 +1,33 @@
 import React from 'react'
 import Card from './Card'
 import axios from 'axios'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 
 
-export  function TopHeadline() {
-    const [news, setNews] = useState("");
-    async function getTop() {
+export function TopHeadline() {
+  const [news, setNews] = useState("");
+  useEffect(() => {
+    const url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=d8fdb92a19454a4d93f5714f2c54a1b4&page=${3}&pageSize=6`;
+    async function fetchData() {
         try {
-          const response = await axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=bfe95d1f7a6840ab81cb77d2dc80414e&pageSize=6');
-          setNews(response.data.articles);
+            const response = await axios.get(url);
+            setNews(response.data.articles);
         } catch (error) {
-          console.error(error);
+            console.error(error);
         }
-      }
-  getTop();
+
+    }
+    fetchData();
+}, [])
   
-      
+
+
   return (
     <div>
-         <div className='d-flex align-content-stretch flex-wrap container my-3' style={{ justifyContent: "center" }}>
+      <div className='d-flex align-content-stretch flex-wrap container my-3' style={{ justifyContent: "center" }}>
         {news ? news.map((e, i) =>
           <div className='mx-3 my-3'>
             <div className=''>
@@ -36,14 +41,14 @@ export  function TopHeadline() {
         </div>}
         <div className='container my-4' style={{ justifyContent: "center" }}>
 
-<ArrowForwardIosIcon />
+          <ArrowForwardIosIcon />
 
 
-<ArrowBackIosNewIcon />
+          <ArrowBackIosNewIcon />
 
 
 
-</div>
+        </div>
       </div>
     </div>
   )

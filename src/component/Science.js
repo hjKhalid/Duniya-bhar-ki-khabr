@@ -1,21 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import  Card  from './Card';
 import axios from 'axios';
-import Pagination from '@mui/material/Pagination';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 export  function Science() {
     const [science, setSeince] = useState("");
-    async function GetUser() {
+    useEffect(() => {
+        const url = ` https://newsapi.org/v2/everything?q=science&apiKey=d8fdb92a19454a4d93f5714f2c54a1b4&page=${3}&pageSize=6`;
+        async function fetchData() {
+            try {
+                const response = await axios.get(url);
+                setSeince(response.data.articles);
+            } catch (error) {
+                console.error(error);
+            }
 
-        try {
-          const response = await axios.get(' https://newsapi.org/v2/everything?q=sceince&from=2023-02-07&sortBy=publishedAt&apiKey=bfe95d1f7a6840ab81cb77d2dc80414e&pageSize=6');
-          setSeince(response.data.articles);
-        } catch (error) {
-          console.error(error);
         }
-      }
-    
-      GetUser()
+        fetchData();
+    }, [])
+      
     return (
         <div>
             <div className='sport'>
@@ -34,8 +38,15 @@ export  function Science() {
                     </div>}
                 </div>
                 <div className='container my-4' style={{ justifyContent: "center" }}>
-        <Pagination count={10} color="primary"  />
-      </div>
+
+<ArrowForwardIosIcon />
+
+
+<ArrowBackIosNewIcon />
+
+
+
+</div>
             </div>
             </div>
             )
