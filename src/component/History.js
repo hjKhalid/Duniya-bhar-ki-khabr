@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Card from './Card';
 import axios from 'axios';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -6,12 +6,13 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 export function History() {
     const [history, setHistory] = useState("");
     const [page, setPage] = useState(1 | (() => 1))
+ const handleOnForword =()=>{
 
-    const handleOnForword = () => {
-        setPage(page + 1);
-    }
+ }
+
     useEffect(() => {
-        const url = ` https://newsapi.org/v2/everything?q=history&apiKey=0ff15cccf51746e9b8f3da55666fff2a&page=${3}&pageSize=6`;
+
+        const url = ` https://newsapi.org/v2/everything?q=history&apiKey=0ff15cccf51746e9b8f3da55666fff2a&page= ${page}&pageSize=6`;
         async function fetchData() {
             try {
                 const response = await axios.get(url);
@@ -42,14 +43,13 @@ export function History() {
                 </div>
 
             </div>
-            <div className='container' >
+            <div className=" container d-flex justify-content-center">
 
-                <span class="d-flex justify-content-start">
+                <span>
+
+                    <button className='mx-3 my-3' ><ArrowBackIosNewIcon /></button>
+
                     <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
-
-                </span>
-                <span class="d-flex justify-content-end">
-                    <button  ><ArrowBackIosNewIcon /></button>
                 </span>
 
 

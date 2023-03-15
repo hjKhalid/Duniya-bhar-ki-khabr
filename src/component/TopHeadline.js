@@ -44,19 +44,19 @@ export function TopHeadline() {
         ) : <div className='container'>
           <Card title="" imageUrl="" BriefDiscription="" />
         </div>}
-        <div className='container' >
-
-          <span class="d-flex justify-content-start">
-            <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
-
-          </span>
-          <span class="d-flex justify-content-end">
-            <button  ><ArrowBackIosNewIcon /></button>
-          </span>
 
 
+      </div>
+      <div className=" container d-flex justify-content-center">
 
-        </div>
+        <span>
+
+          <button className='mx-3 my-3' ><ArrowBackIosNewIcon /></button>
+
+          <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
+        </span>
+
+
 
       </div>
     </div>

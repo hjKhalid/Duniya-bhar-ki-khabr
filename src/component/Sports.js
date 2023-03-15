@@ -44,19 +44,18 @@ export function Sports(props) {
             <Card title="" imageUrl="" BriefDiscription="" />
           </div>}
         </div>
-        <div className='container' >
+        <div className=" container d-flex justify-content-center">
 
-          <span class="d-flex justify-content-start">
-            <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
+<span>
 
-          </span>
-          <span class="d-flex justify-content-end">
-            <button  ><ArrowBackIosNewIcon /></button>
-          </span>
+  <button className='mx-3 my-3' ><ArrowBackIosNewIcon /></button>
 
+  <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
+</span>
 
 
-        </div>
+
+</div>
       </div>
     </div>
   )
