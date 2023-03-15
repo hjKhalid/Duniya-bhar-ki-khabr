@@ -1,13 +1,18 @@
-import React, { useState,useEffect } from 'react'
-import  Card  from './Card';
+import React, { useState, useEffect } from 'react'
+import Card from './Card';
 import axios from 'axios';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
-export  function Science() {
+export function Science() {
     const [science, setSeince] = useState("");
+    const [page, setPage] = useState(1 | (() => 1))
+
+    const handleOnForword = () => {
+        setPage(page + 1);
+    }
     useEffect(() => {
-        const url = ` https://newsapi.org/v2/everything?q=science&apiKey=d8fdb92a19454a4d93f5714f2c54a1b4&page=${3}&pageSize=6`;
+        const url = ` https://newsapi.org/v2/everything?q=science&apiKey=0ff15cccf51746e9b8f3da55666fff2a&page=${3}&pageSize=6`;
         async function fetchData() {
             try {
                 const response = await axios.get(url);
@@ -19,7 +24,7 @@ export  function Science() {
         }
         fetchData();
     }, [])
-      
+
     return (
         <div>
             <div className='sport'>
@@ -28,7 +33,7 @@ export  function Science() {
                     {science ? science.map((e, i) =>
                         <div className='mx-3 my-3'>
                             <div className=''>
-                                <Card key={i} title={e.title ? e.title : ""} imageUrl={e.urlToImage ? e.urlToImage : ""} BriefDiscription={e.description ? e.description : ""} />
+                                <Card key={i}Link={e.url}  author={e.author} Avatar={e.source.name}  title={e.title ? e.title : ""} imageUrl={e.urlToImage ? e.urlToImage : ""} BriefDiscription={e.description ? e.description : ""} />
 
                             </div>
                         </div>
@@ -37,19 +42,23 @@ export  function Science() {
                         <Card title="" imageUrl="" BriefDiscription="" />
                     </div>}
                 </div>
-                <div className='container my-4' style={{ justifyContent: "center" }}>
+                <div className='container' >
 
-<ArrowForwardIosIcon />
+                    <span class="d-flex justify-content-start">
+                        <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
+
+                    </span>
+                    <span class="d-flex justify-content-end">
+                        <button  ><ArrowBackIosNewIcon /></button>
+                    </span>
 
 
-<ArrowBackIosNewIcon />
 
+                </div>
 
-
-</div>
             </div>
-            </div>
-            )
+        </div>
+    )
 }
 
-            export default Science;
+export default Science;

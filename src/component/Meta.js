@@ -6,26 +6,14 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 export function Meta() {
     const [meta, setMeta] = useState("");
-    const [page, setPage] = ("");
+    const [page, setPage] = useState(1 | (() => 1))
 
-    // const handleOnclick = async() => {
-
-    //    const url = `https://newsapi.org/v2/top-headlines?country=in&category=bitcoin&apiKey=d8fdb92a19454a4d93f5714f2c54a1b4&page=${page+1}&pageSize=6`;
-
-    //     try {
-    //         const response = await axios.get(url);
-    //         setMeta(response.data.articles);
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
-    function countPage(event) {
-        setPage(event.target.value);
+    const handleOnForword = () => {
+        setPage(page + 1);
     }
-    console.log(page);
 
     useEffect(() => {
-        const url = ` https://newsapi.org/v2/everything?q=bitcoin&apiKey=d8fdb92a19454a4d93f5714f2c54a1b4&page=${3}&pageSize=6`;
+        const url = ` https://newsapi.org/v2/everything?q=bitcoin&apiKey=0ff15cccf51746e9b8f3da55666fff2a&page=${page}&pageSize=6`;
         async function fetchData() {
             try {
                 const response = await axios.get(url);
@@ -40,13 +28,13 @@ export function Meta() {
 
     return (
         <div>
-            <div className='sport'>
+            <div className='meta'>
                 <h1 style={{ fontFamily: "cursive", textAlign: "center" }}>Meta</h1>
                 <div className='d-flex align-content-stretch flex-wrap container my-3' style={{ justifyContent: "center" }}>
                     {meta ? meta.map((e, i) =>
                         <div className='mx-3 my-3'>
                             <div className=''>
-                                <Card key={i} title={e.title ? e.title : ""} imageUrl={e.urlToImage ? e.urlToImage : ""} BriefDiscription={e.description ? e.description : ""} />
+                                <Card key={i} Link={e.url} author={e.author} Avatar={e.source.name}  title={e.title ? e.title : ""} imageUrl={e.urlToImage ? e.urlToImage : ""} BriefDiscription={e.description ? e.description : ""} />
 
                             </div>
                         </div>
@@ -55,16 +43,20 @@ export function Meta() {
                         <Card title="" imageUrl="" BriefDiscription="" />
                     </div>}
                 </div>
-                <div className='container my-4' style={{ justifyContent: "center" }}>
 
-                    <ArrowForwardIosIcon />
+            </div>
+            <div className='container' >
+
+                <span class="d-flex justify-content-start">
+                    <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
+
+                </span>
+                <span class="d-flex justify-content-end">
+                    <button  ><ArrowBackIosNewIcon /></button>
+                </span>
 
 
-                    <ArrowBackIosNewIcon />
 
-
-
-                </div>
             </div>
         </div>
     )

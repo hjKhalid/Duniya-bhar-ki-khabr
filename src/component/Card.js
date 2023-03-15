@@ -39,7 +39,7 @@ export default function RecipeReviewCard(props) {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+            {props.Avatar}
           </Avatar>
         }
         action={
@@ -91,7 +91,10 @@ export default function RecipeReviewCard(props) {
           {props.BriefDiscription1}
           </Typography>
           <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then serve.
+          <spna>Author: {props.author}</spna>
+          </Typography>
+          <Typography>
+          Source Link: <a href={props.Link}>{props.Avatar}</a>
           </Typography>
         </CardContent>
       </Collapse>

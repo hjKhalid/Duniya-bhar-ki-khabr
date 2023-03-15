@@ -1,12 +1,17 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Card from './Card';
 import axios from 'axios';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 export function History() {
     const [history, setHistory] = useState("");
+    const [page, setPage] = useState(1 | (() => 1))
+
+    const handleOnForword = () => {
+        setPage(page + 1);
+    }
     useEffect(() => {
-        const url = ` https://newsapi.org/v2/everything?q=history&apiKey=d8fdb92a19454a4d93f5714f2c54a1b4&page=${3}&pageSize=6`;
+        const url = ` https://newsapi.org/v2/everything?q=history&apiKey=0ff15cccf51746e9b8f3da55666fff2a&page=${3}&pageSize=6`;
         async function fetchData() {
             try {
                 const response = await axios.get(url);
@@ -26,7 +31,7 @@ export function History() {
                     {history ? history.map((e, i) =>
                         <div className='mx-3 my-3'>
                             <div className=''>
-                                <Card key={i} title={e.title ? e.title : ""} imageUrl={e.urlToImage ? e.urlToImage : ""} BriefDiscription={e.description ? e.description : ""} />
+                                <Card key={i} Link={e.url} author={e.author} Avatar={e.source.name} title={e.title ? e.title : ""} imageUrl={e.urlToImage ? e.urlToImage : ""} BriefDiscription={e.description ? e.description : ""} />
 
                             </div>
                         </div>
@@ -35,17 +40,22 @@ export function History() {
                         <Card title="" imageUrl="" BriefDiscription="" />
                     </div>}
                 </div>
-                <div className='container my-4' style={{ justifyContent: "center" }}>
 
-                    <ArrowForwardIosIcon />
-
-
-                    <ArrowBackIosNewIcon />
-
-
-
-                </div>
             </div>
+            <div className='container' >
+
+                <span class="d-flex justify-content-start">
+                    <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
+
+                </span>
+                <span class="d-flex justify-content-end">
+                    <button  ><ArrowBackIosNewIcon /></button>
+                </span>
+
+
+
+            </div>
+
         </div>
     )
 }

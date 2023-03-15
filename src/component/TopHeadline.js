@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from './Card'
 import axios from 'axios'
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
@@ -9,20 +9,25 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 export function TopHeadline() {
   const [news, setNews] = useState("");
+  const [page, setPage] = useState(1 | (() => 1))
+
+  const handleOnForword = () => {
+    setPage(page + 1);
+  }
   useEffect(() => {
-    const url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=d8fdb92a19454a4d93f5714f2c54a1b4&page=${3}&pageSize=6`;
+    const url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=0ff15cccf51746e9b8f3da55666fff2a&page=${3}&pageSize=6`;
     async function fetchData() {
-        try {
-            const response = await axios.get(url);
-            setNews(response.data.articles);
-        } catch (error) {
-            console.error(error);
-        }
+      try {
+        const response = await axios.get(url);
+        setNews(response.data.articles);
+      } catch (error) {
+        console.error(error);
+      }
 
     }
     fetchData();
-}, [])
-  
+  }, [])
+
 
 
   return (
@@ -31,7 +36,7 @@ export function TopHeadline() {
         {news ? news.map((e, i) =>
           <div className='mx-3 my-3'>
             <div className=''>
-              <Card key={i} title={e.title ? e.title : ""} imageUrl={e.urlToImage ? e.urlToImage : ""} BriefDiscription={e.description ? e.description : ""} />
+              <Card key={i} Link={e.url} author={e.author} Avatar={e.source.name} title={e.title ? e.title : ""} imageUrl={e.urlToImage ? e.urlToImage : ""} BriefDiscription={e.description ? e.description : ""} />
 
             </div>
           </div>
@@ -39,16 +44,20 @@ export function TopHeadline() {
         ) : <div className='container'>
           <Card title="" imageUrl="" BriefDiscription="" />
         </div>}
-        <div className='container my-4' style={{ justifyContent: "center" }}>
+        <div className='container' >
 
-          <ArrowForwardIosIcon />
+          <span class="d-flex justify-content-start">
+            <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
 
-
-          <ArrowBackIosNewIcon />
+          </span>
+          <span class="d-flex justify-content-end">
+            <button  ><ArrowBackIosNewIcon /></button>
+          </span>
 
 
 
         </div>
+
       </div>
     </div>
   )
