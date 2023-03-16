@@ -38,7 +38,7 @@ const WeatherIcon = styled.img`
 `;
 const WeatherContainer = styled.div`
   display: flex;
-  width: 100%;
+  width: 50%;
   margin: 30px auto;
   flex-direction: row;
   justify-content: space-between;
@@ -47,7 +47,7 @@ const WeatherContainer = styled.div`
 
 const WeatherInfoContainer = styled.div`
   display: flex;
-  width: 90%;
+  width: 80%;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
@@ -55,10 +55,10 @@ const WeatherInfoContainer = styled.div`
 `;
 const InfoContainer = styled.div`
   display: flex;
-  margin: 5px 10px;
+  margin: 0px 0px;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: end;
 `;
 const InfoIcon = styled.img`
   width: 36px;

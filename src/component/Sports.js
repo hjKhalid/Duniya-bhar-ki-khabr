@@ -8,12 +8,12 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 export function Sports(props) {
   const [sport, setSport] = useState("");
   const [page, setPage] = useState(1 | (() => 1))
-
-    const handleOnForword = () => {
-        setPage(page + 1);
-    }
+  const handleOnForword = () => {
+    setPage(page + 1);
+}
+ 
   useEffect(() => {
-    const url = ` https://newsapi.org/v2/everything?q=sport&apiKey=0ff15cccf51746e9b8f3da55666fff2a&page=${3}&pageSize=6`;
+    const url = ` https://newsapi.org/v2/everything?q=sport&apiKey=0bb476f88cb84a17b59f65753e14e9d6&page=${3}&pageSize=6`;
     async function fetchData() {
       try {
         const response = await axios.get(url);

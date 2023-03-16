@@ -33,7 +33,7 @@ export const WeatherIcons = {
     align-items: center;
     
     
-    padding: 10px 5px;
+    padding: 0px 0px;
     margin: auto;
     
     

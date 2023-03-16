@@ -15,7 +15,7 @@ export function TopHeadline() {
     setPage(page + 1);
   }
   useEffect(() => {
-    const url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=0ff15cccf51746e9b8f3da55666fff2a&page=${3}&pageSize=6`;
+    const url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=0bb476f88cb84a17b59f65753e14e9d6&page=${3}&pageSize=6`;
     async function fetchData() {
       try {
         const response = await axios.get(url);

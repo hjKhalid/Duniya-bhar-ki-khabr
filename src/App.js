@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import Box from '@mui/material/Box'
 import Navbar from './component/Navbar'
 import Sports from './component/Sports'
@@ -12,6 +12,8 @@ import Science from './component/Science'
 import Meta from './component/Meta'
 import AI from './component/AI'
 import Footer from './component/Footer'
+import Curosal  from './component/Curosal'
+import Crypto from './component/Crypto'
 
 
 
@@ -37,14 +39,18 @@ export const WeatherIcons = {
 
 
 function App(props) {
-  const lat = useRef(null);
-  const long = useRef(null);
-  navigator.geolocation.getCurrentPosition(function (position) {
-    lat.current = position.coords.latitude;
-    long.current = position.coords.longitude;
-    console.log(lat);
-    console.log(long);
-  })
+
+
+
+
+  // const lat = useRef(null);
+  // const long = useRef(null);
+  // navigator.geolocation.getCurrentPosition(function (position) {
+  //   lat.current = position.coords.latitude;
+  //   long.current = position.coords.longitude;
+  //   console.log(lat);
+  //   console.log(long);
+  // })
 
 
   const scrollAi = () => {
@@ -92,11 +98,14 @@ function App(props) {
 
   }
 
+
+
   return (
     <>
       <div><Navbar />
+
         <div className='container' style={{ justifyItems: "self-end", fontStyle: "italic", color: "red" }}>{Date(Date.now()).toString().slice(0, 18)}</div>
-        <div className=' container btn' style={{ alignItems: "center", margin: "0rem 3rem 5rem", padding: "0rem 2rem 0rem 5rem" }}>
+        <div className=' container btn' style={{ alignItems: "center", margin: "0rem 3rem 5rem", padding: "0rem 2rem 0rem 5rem" ,display:"flex"}}>
           <ButtonGroup variant="contained" aria-label="outlined primary button group">
             <Button className='mx-2' onClick={scrollSport}>Sport</Button>
             <Button className='mx-2' onClick={scrollHistory}>History</Button>
@@ -104,29 +113,38 @@ function App(props) {
             <Button className='mx-2' onClick={scrollAi}>AI</Button>
             <Button className='mx-2' onClick={scrollMeta}>Meta</Button>
           </ButtonGroup>
+          
         </div>
 
-        {/* <Curosal  imageUrl={news[1].urlToImage?news[1].urlToImage:""} alt="mala" title={news[1].title?news[1].title:""} description={news[1].description?news[1].description:""}/> */}
+        <Curosal/>
         <h1 className='' style={{ fontFamily: "cursive", textAlign: "center" }}>Top Headlines</h1>
+        <div style={{display:"flex",justifyContent:"space-between"}}>
         <TopHeadline />
+        <span><Weather/></span>
+        </div>
+        
         <div id='section_sport'>
           <Sports />
+
         </div>
+
         <div id='section_history'>
           <History />
         </div>
         <div id='section_science'>
           <Science />
+
+
         </div>
-        <div id='section_meta'>
+        <div id='section_meta' style={{display:"flex",justifyItems:"baseline"}}>
           <Meta />
+          <div style={{margin:"1rem 1rem 1rem 1rem  ",padding:"2.5rem"}}><Crypto/></div>
+          
         </div>
         <div id='section_ai'>
           <AI />
         </div>
-        <Box>
-          <Weather/>
-        </Box>
+
 
       </div>
       <Footer />
