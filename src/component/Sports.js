@@ -4,14 +4,21 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import CustomRatio from './CustomRatio';
 
 export function Sports(props) {
   const [sport, setSport] = useState("");
+  const [current,setCurrent]=useState("");
+  const [currentMatch,setCurrentMatch]=useState("");
+  const [currentStatus,setCurrentStatus]=useState("");
+  const [currentOver,setCurrentOver]=useState("");
+  const [currentRun,setCurrentRun]=useState("");
+  const [currentWicket,setCurrentWicket]=useState("");
   const [page, setPage] = useState(1 | (() => 1))
   const handleOnForword = () => {
     setPage(page + 1);
-}
- 
+  }
+
   useEffect(() => {
     const url = ` https://newsapi.org/v2/everything?q=sport&apiKey=0bb476f88cb84a17b59f65753e14e9d6&page=${3}&pageSize=6`;
     async function fetchData() {
@@ -25,17 +32,51 @@ export function Sports(props) {
     }
     fetchData();
   }, [])
+   
+  useEffect(() => {
+    const options = {
+      method: 'GET',
+      url: 'https://livescore6.p.rapidapi.com/matches/v2/list-live',
+      params: {Category: 'cricket', Timezone: '-7'},
+      headers: {
+        'X-RapidAPI-Key': '7e3a69d1f7mshed072df5bd903ddp1aa64cjsnebe547687d1f',
+        'X-RapidAPI-Host': 'livescore6.p.rapidapi.com'
+      }
+    };
+    
+    async function fetchData() {
+      try {
+        const response = await axios.request(options);
+        setCurrent(response.data.Stages[0].Cnm);
+        setCurrentMatch(response.data.Stages[0].Scd);
+        setCurrentStatus(response.data.Stages[0].Events[0].ECo)
+        setCurrentOver(response.data.Stages[0].Events[0].Tr1CO1)
+        setCurrentRun(response.data.Stages[0].Events[0].Tr1C1)
+        setCurrentWicket(response.data.Stages[0].Events[0].Tr1CW1)
+      } catch (error) {
+        console.error(error);
+      }
+
+    }
+    fetchData();
+  }, [])
+console.log(current)
+console.log(currentMatch);
+console.log(currentStatus);
+console.log(currentOver);
+console.log(currentRun);
+console.log(currentWicket);
 
 
   return (
-    <div>
+    <div style={{display:"flex"  }}>
       <div className='sport'>
         <h1 style={{ fontFamily: "cursive", textAlign: "center" }}>Sport</h1>
         <div className='d-flex align-content-stretch flex-wrap container my-3' style={{ justifyContent: "center" }}>
           {sport ? sport.map((e, i) =>
             <div className='mx-3 my-3'>
               <div className=''>
-                <Card key={i}  Link={e.url} author={e.author} Avatar={e.source.name} title={e.title ? e.title : ""} imageUrl={e.urlToImage ? e.urlToImage : ""} BriefDiscription={e.description ? e.description : ""} />
+                <Card key={i} Link={e.url} author={e.author} Avatar={e.source.name} title={e.title ? e.title : ""} imageUrl={e.urlToImage ? e.urlToImage : ""} BriefDiscription={e.description ? e.description : ""} />
 
               </div>
             </div>
@@ -46,17 +87,21 @@ export function Sports(props) {
         </div>
         <div className=" container d-flex justify-content-center">
 
-<span>
+          <span>
 
-  <button className='mx-3 my-3' ><ArrowBackIosNewIcon /></button>
+            <button className='mx-3 my-3' ><ArrowBackIosNewIcon /></button>
 
-  <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
-</span>
+            <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
+          </span>
 
 
 
-</div>
+        </div>
+        
       </div>
+      <div style={{margin:"5rem 0 0 1rem",padding:"0 2rem 0 0"}}>
+          <CustomRatio matches={current} Run={currentRun} wicket={currentWicket} over={currentOver} status={currentStatus} matchesBetween={currentMatch} />
+        </div>
     </div>
   )
 }

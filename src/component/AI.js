@@ -32,7 +32,7 @@ export function AI() {
                     {ai ? ai.map((e, i) =>
                         <div className='mx-3 my-3'>
                             <div className=''>
-                                <Card key={i} Link={e.url} author={e.author} Avatar={e.source.name}  title={e.title ? e.title : ""} imageUrl={e.urlToImage ? e.urlToImage : ""} BriefDiscription={e.description ? e.description : ""} />
+                                <Card key={i} Link={e.url} author={e.author} Avatar={e.source.name} title={e.title ? e.title : ""} imageUrl={e.urlToImage ? e.urlToImage : ""} BriefDiscription={e.description ? e.description : ""} />
 
                             </div>
                         </div>
@@ -43,16 +43,16 @@ export function AI() {
                 </div>
                 <div className=" container d-flex justify-content-center">
 
-<span>
+                    <span>
 
-  <button className='mx-3 my-3' ><ArrowBackIosNewIcon /></button>
+                        <button className='mx-3 my-3' ><ArrowBackIosNewIcon /></button>
 
-  <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
-</span>
+                        <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
+                    </span>
 
 
 
-</div>
+                </div>
 
             </div>
         </div>
