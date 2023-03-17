@@ -14,6 +14,7 @@ import AI from './component/AI'
 import Footer from './component/Footer'
 import Curosal  from './component/Curosal'
 import Crypto from './component/Crypto'
+import TableGlobalVariant from './component/TableGlobalVariant'
 
 
 
@@ -120,7 +121,9 @@ function App(props) {
         <h1 className='' style={{ fontFamily: "cursive", textAlign: "center" }}>Top Headlines</h1>
         <div style={{display:"flex",justifyContent:"space-between"}}>
         <TopHeadline />
-        <span><Weather/></span>
+        <span><Weather/>
+        <TableGlobalVariant/>
+        </span>
         </div>
         
         <div id='section_sport'>
