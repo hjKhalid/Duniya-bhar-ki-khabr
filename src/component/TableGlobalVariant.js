@@ -67,7 +67,7 @@ console.log(inState);
 
     <AspectRatio
     variant="outlined"
-    ratio="4/5"
+    ratio="4/6"
     sx={{
       width: 300,
       bgcolor: 'background.level2',
@@ -76,17 +76,15 @@ console.log(inState);
   >
     <Typography level="h5" component="div" className='my-5'>
      
-     Fuel price in india
+     {/* Fuel price in india */}
 
     </Typography>
     <Typography level="h6" component="div" className='mx-3 my-3'>
-    
-       City : {cityName}
-
-      
-    </Typography>
+   City : {cityName}
+ </Typography>
  
     <Typography level="h6" component="div" className='mx-3'>
+      Fuel prices<br/><hr/>
       Petrol: {petrol}<br/>
       Diesel: {diesel}<br/>
       Cng: {cng}<br/>
