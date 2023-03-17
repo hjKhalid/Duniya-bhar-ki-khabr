@@ -106,8 +106,8 @@ function App(props) {
       <div><Navbar />
 
         <div className='container' style={{ justifyItems: "self-end", fontStyle: "italic", color: "red" }}>{Date(Date.now()).toString().slice(0, 18)}</div>
-        <div className=' container btn' style={{ alignItems: "center", margin: "0rem 3rem 5rem", padding: "0rem 2rem 0rem 5rem" ,display:"flex"}}>
-          <ButtonGroup variant="contained" aria-label="outlined primary button group">
+        <div className=' container btn' style={{ margin: "0rem 0rem 2rem 0rem",paddingLeft:"35%",display:"flex"}}>
+          <ButtonGroup variant="contained" aria-label="outlined primary button group" >
             <Button className='mx-2' onClick={scrollSport}>Sport</Button>
             <Button className='mx-2' onClick={scrollHistory}>History</Button>
             <Button className='mx-2' onClick={scrollScience}>Science</Button>
@@ -121,7 +121,7 @@ function App(props) {
         <h1 className='' style={{ fontFamily: "cursive", textAlign: "center" }}>Top Headlines</h1>
         <div style={{display:"flex",justifyContent:"space-between"}}>
         <TopHeadline />
-        <span><Weather/>
+        <span className='my-1'><Weather/>
         <TableGlobalVariant/>
         </span>
         </div>
