@@ -1,6 +1,5 @@
 import React from 'react'
-import { useRef, useState } from 'react'
-import Box from '@mui/material/Box'
+
 import Navbar from './component/Navbar'
 import Sports from './component/Sports'
 import History from './component/History'

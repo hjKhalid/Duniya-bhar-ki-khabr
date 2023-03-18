@@ -12,9 +12,12 @@ export function Meta() {
     const handleOnForword = () => {
         setPage(page + 1);
     }
+    const handleToBackward=()=>{
+        setPage(page-1)
+    }
 
     useEffect(() => {
-        const url = ` https://newsapi.org/v2/everything?q=bitcoin&apiKey=0ff15cccf51746e9b8f3da55666fff2a&page=${page}&pageSize=6`;
+        const url = ` https://newsapi.org/v2/everything?q=bitcoin&apiKey=0bb476f88cb84a17b59f65753e14e9d6&page=${page}&pageSize=6`;
         async function fetchData() {
             try {
                 const response = await axios.get(url);
@@ -25,7 +28,7 @@ export function Meta() {
 
         }
         fetchData();
-    }, [])
+    }, [page])
 
     return (
         <div>
@@ -54,7 +57,7 @@ export function Meta() {
 
                 <span>
 
-                    <button className='mx-3 my-3' ><ArrowBackIosNewIcon /></button>
+                    <button className='mx-3 my-3' onClick={handleToBackward} ><ArrowBackIosNewIcon /></button>
 
                     <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
                 </span>

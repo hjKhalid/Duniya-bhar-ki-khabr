@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import Card from './Card';
 import axios from 'axios';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -6,13 +6,25 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 export function History() {
     const [history, setHistory] = useState("");
     const [page, setPage] = useState(1 | (() => 1))
- const handleOnForword =()=>{
 
- }
+    const handleOnForword =()=>{
+        setPage(page+1);
+       
+       
+    }
+    const handleToBackward=()=>{
+        setPage(page-1)
+    }
+
+
 
     useEffect(() => {
+       
+      
+        let apiKey="0bb476f88cb84a17b59f65753e14e9d6"
+        let pageNumber=page;
 
-        const url = ` https://newsapi.org/v2/everything?q=history&apiKey=0ff15cccf51746e9b8f3da55666fff2a&page= ${page}&pageSize=6`;
+        const url = ` https://newsapi.org/v2/everything?q=history&apiKey=${apiKey}&page=${pageNumber}&pageSize=6`;
         async function fetchData() {
             try {
                 const response = await axios.get(url);
@@ -23,7 +35,11 @@ export function History() {
 
         }
         fetchData();
-    }, [])
+       
+    },[page]
+    )
+    
+   
     return (
         <div>
             <div className='sport'>
@@ -47,7 +63,7 @@ export function History() {
 
                 <span>
 
-                    <button className='mx-3 my-3' ><ArrowBackIosNewIcon /></button>
+                    <button className='mx-3 my-3' onClick={handleToBackward} ><ArrowBackIosNewIcon /></button>
 
                     <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
                 </span>

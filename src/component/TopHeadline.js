@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from './Card'
 import axios from 'axios'
+
 import { useState, useEffect } from 'react'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
@@ -14,8 +15,11 @@ export function TopHeadline() {
   const handleOnForword = () => {
     setPage(page + 1);
   }
+  const handleToBackward=()=>{
+    setPage(page - 1);
+  }
   useEffect(() => {
-    const url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=0bb476f88cb84a17b59f65753e14e9d6&page=${3}&pageSize=6`;
+    const url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=0bb476f88cb84a17b59f65753e14e9d6&page=${page}&pageSize=6`;
     async function fetchData() {
       try {
         const response = await axios.get(url);
@@ -26,7 +30,7 @@ export function TopHeadline() {
 
     }
     fetchData();
-  }, [])
+  }, [page])
 
 
 
@@ -51,7 +55,7 @@ export function TopHeadline() {
 
         <span>
 
-          <button className='mx-3 my-3' ><ArrowBackIosNewIcon /></button>
+          <button className='mx-3 my-3' onClick={handleToBackward} ><ArrowBackIosNewIcon /></button>
 
           <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
         </span>
@@ -59,6 +63,7 @@ export function TopHeadline() {
 
 
       </div>
+      
     </div>
   )
 }

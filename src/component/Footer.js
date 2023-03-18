@@ -1,8 +1,7 @@
-import { grey } from '@mui/material/colors';
-import { fontSize } from '@mui/system';
+
 import React from 'react'
 const date = new Date().getFullYear();
-// const year=date().getyear
+
 
 
 const Footer = () => {

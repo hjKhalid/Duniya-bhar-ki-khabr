@@ -97,7 +97,7 @@ console.log(inState);
    
     </Typography>
     <div className='my-4 mx-2'>
-    <Textarea placeholder="Enter your city name"  onChange={handleOnchange}/>
+    <Textarea placeholder="Enter your city name" className='m-1' onChange={handleOnchange}/>
     <Textarea placeholder="Enter your State"  onChange={handleOnStateChange}/>
     <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
       <Button className='my-2 mx-3' onClick={handleOnClick}> fetch fuel price</Button>

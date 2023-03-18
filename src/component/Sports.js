@@ -18,9 +18,12 @@ export function Sports(props) {
   const handleOnForword = () => {
     setPage(page + 1);
   }
+  const handleToBacward=()=>{
+    setPage(page-1)
+  }
 
   useEffect(() => {
-    const url = ` https://newsapi.org/v2/everything?q=sport&apiKey=0bb476f88cb84a17b59f65753e14e9d6&page=${3}&pageSize=6`;
+    const url = ` https://newsapi.org/v2/everything?q=sport&apiKey=0bb476f88cb84a17b59f65753e14e9d6&page=${page}&pageSize=6`;
     async function fetchData() {
       try {
         const response = await axios.get(url);
@@ -31,7 +34,7 @@ export function Sports(props) {
 
     }
     fetchData();
-  }, [])
+  }, [page])
    
   useEffect(() => {
     const options = {
@@ -89,7 +92,7 @@ console.log(currentWicket);
 
           <span>
 
-            <button className='mx-3 my-3' ><ArrowBackIosNewIcon /></button>
+            <button className='mx-3 my-3' onClick={handleToBacward}  ><ArrowBackIosNewIcon /></button>
 
             <button onClick={handleOnForword} ><ArrowForwardIosIcon /></button>
           </span>
