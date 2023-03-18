@@ -11,9 +11,10 @@ import Science from './component/Science'
 import Meta from './component/Meta'
 import AI from './component/AI'
 import Footer from './component/Footer'
-import Curosal  from './component/Curosal'
+import Curosal from './component/Curosal'
 import Crypto from './component/Crypto'
 import TableGlobalVariant from './component/TableGlobalVariant'
+import Finance from './component/Finance'
 
 
 
@@ -39,18 +40,6 @@ export const WeatherIcons = {
 
 
 function App(props) {
-
-
-
-
-  // const lat = useRef(null);
-  // const long = useRef(null);
-  // navigator.geolocation.getCurrentPosition(function (position) {
-  //   lat.current = position.coords.latitude;
-  //   long.current = position.coords.longitude;
-  //   console.log(lat);
-  //   console.log(long);
-  // })
 
 
   const scrollAi = () => {
@@ -97,6 +86,14 @@ function App(props) {
     }
 
   }
+  const scrollFinance = () => {
+    const element = document.getElementById('section_finance');
+    if (element) {
+      // 👇 Will scroll smoothly to the top of the next section
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+
+  }
 
 
 
@@ -105,26 +102,27 @@ function App(props) {
       <div><Navbar />
 
         <div className='container' style={{ justifyItems: "self-end", fontStyle: "italic", color: "red" }}>{Date(Date.now()).toString().slice(0, 18)}</div>
-        <div className=' container btn' style={{ margin: "0rem 0rem 2rem 0rem",paddingLeft:"35%",display:"flex"}}>
+        <div className=' container btn' style={{ margin: "0rem 0rem 2rem 0rem", paddingLeft: "35%", display: "flex" }}>
           <ButtonGroup variant="contained" aria-label="outlined primary button group" >
             <Button className='mx-2' onClick={scrollSport}>Sport</Button>
             <Button className='mx-2' onClick={scrollHistory}>History</Button>
             <Button className='mx-2' onClick={scrollScience}>Science</Button>
             <Button className='mx-2' onClick={scrollAi}>AI</Button>
             <Button className='mx-2' onClick={scrollMeta}>Meta</Button>
+            <Button className='mx-2' onClick={scrollFinance}>Finance</Button>
           </ButtonGroup>
-          
+
         </div>
 
-        <Curosal/>
+        <Curosal />
         <h1 className='' style={{ fontFamily: "cursive", textAlign: "center" }}>Top Headlines</h1>
-        <div style={{display:"flex",justifyContent:"space-between"}}>
-        <TopHeadline />
-        <span className='my-1'><Weather/>
-        <TableGlobalVariant/>
-        </span>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <TopHeadline />
+          <span className='my-1'><Weather />
+            <TableGlobalVariant />
+          </span>
         </div>
-        
+
         <div id='section_sport'>
           <Sports />
 
@@ -138,16 +136,19 @@ function App(props) {
 
 
         </div>
-        <div id='section_meta' style={{display:"flex",justifyItems:"baseline"}}>
+        <div id='section_meta' style={{ display: "flex", justifyItems: "baseline" }}>
           <Meta />
-          <div style={{margin:"1rem 1rem 1rem 1rem  ",padding:"2.5rem"}}><Crypto/></div>
-          
+          <div style={{ margin: "1rem 1rem 1rem 1rem  ", padding: "2.5rem" }}><Crypto /></div>
+
         </div>
         <div id='section_ai'>
           <AI />
         </div>
+        <div id='section_finance'>
+          <Finance />
+        </div>
 
-        <p>testing diff git </p>
+
       </div>
       <Footer />
     </>

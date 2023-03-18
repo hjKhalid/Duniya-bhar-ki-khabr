@@ -43,7 +43,7 @@ function Crypto() {
         {crypto?crypto.map((e,i)=>{
            return <DividedList key={i} imgUrl={e.iconUrl?e.iconUrl:""} Price={e.price?e.price:""} coin={e.name?e.name:""}/>
         }):<DividedList imgUrl="" Price=""/>}
-        {/* <DividedList imgUrl="sjdfsjdgf" Price="khallid fdsf"/> */}
+        
     </div>
   )
 }
