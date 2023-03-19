@@ -102,7 +102,7 @@ console.log(currentWicket);
         </div>
         
       </div>
-      <div style={{margin:"5rem 0 0 1rem",padding:"0 2rem 0 0"}}>
+      <div style={{margin:"4rem 0 0 1.6rem",padding:"1rem 0rem 3rem 0"}}>
           <CustomRatio matches={current} Run={currentRun} wicket={currentWicket} over={currentOver} status={currentStatus} matchesBetween={currentMatch} />
         </div>
     </div>

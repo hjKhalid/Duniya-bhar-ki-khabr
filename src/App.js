@@ -54,7 +54,7 @@ function App(props) {
     <>
       <div><Navbar />
 
-        <div className='container' style={{ justifyItems: "self-end", fontStyle: "italic", color: "red" }}>{Date(Date.now()).toString().slice(0, 18)}</div>
+        <div  style={{ margin:"0 1rem 1rem", fontStyle: "italic", color: "red" }}>{Date(Date.now()).toString().slice(0, 18)}</div>
 
 
         
