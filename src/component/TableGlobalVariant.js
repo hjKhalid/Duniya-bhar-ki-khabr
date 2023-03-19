@@ -29,7 +29,7 @@ export default function TableGlobalVariant(props) {
   }
   console.log(userCity);
     
-//  React.useEffect(() => {
+ React.useEffect(() => {
     const options = {
       method: 'GET',
       url: `https://daily-petrol-diesel-lpg-cng-fuel-prices-in-india.p.rapidapi.com/v1/fuel-prices/today/india/${inState}/${userCity}`,
@@ -55,7 +55,7 @@ export default function TableGlobalVariant(props) {
 
     }
     fetchData();
-// }, []);
+}, [inState,userCity]);
 const handleOnClick=()=>{
   setUserCity(city);
   setInState(userState);

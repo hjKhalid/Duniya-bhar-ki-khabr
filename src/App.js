@@ -57,8 +57,9 @@ function App(props) {
         <div className='container' style={{ justifyItems: "self-end", fontStyle: "italic", color: "red" }}>{Date(Date.now()).toString().slice(0, 18)}</div>
 
 
-        <Curosal />
+        
         <h1 className='' style={{ fontFamily: "cursive", textAlign: "center" }}>Top Headlines</h1>
+        <Curosal />
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <TopHeadline />
           <span className='my-1'><Weather />
