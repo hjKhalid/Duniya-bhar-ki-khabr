@@ -21,7 +21,7 @@ export function History(props) {
     useEffect(() => {
        
       
-        let apiKey="0bb476f88cb84a17b59f65753e14e9d6"
+        let apiKey="a579b0b0293e41fd8dd42d2420dac883"
         let pageNumber=page;
 
         const url = ` https://newsapi.org/v2/everything?q=history&apiKey=${apiKey}&page=${pageNumber}&pageSize=6`;

@@ -22,6 +22,7 @@ import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import ScienceIcon from '@mui/icons-material/Science';
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import SatelliteAltIcon from '@mui/icons-material/SatelliteAlt';
+import CandlestickChartIcon from '@mui/icons-material/CandlestickChart';
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -88,8 +89,57 @@ export default function PersistentDrawerLeft() {
 const handleOnClickSport=(props)=>{
 //   setSport("sport")
 }
- 
 
+
+const scrollHistory = () => {
+  const element2 = document.getElementById('section_history');
+  if (element2) {
+    // 👇 Will scroll smoothly to the top of the next section
+    element2.scrollIntoView({ behavior: 'smooth' });
+  }
+
+}
+const scrollSport  = () => {
+  const element = document.getElementById('section_sport');
+  if (element) {
+    // 👇 Will scroll smoothly to the top of the next section
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+
+}
+
+const scrollMeta = () => {
+  const element3 = document.getElementById('section_meta');
+  if (element3) {
+    // 👇 Will scroll smoothly to the top of the next section
+    element3.scrollIntoView({ behavior: 'smooth' });
+  }
+
+}
+const scrollScience = () => {
+  const element4 = document.getElementById('section_science');
+  if (element4) {
+    // 👇 Will scroll smoothly to the top of the next section
+    element4.scrollIntoView({ behavior: 'smooth' });
+  }
+
+}
+const scrollAi = () => {
+  const element1 = document.getElementById('section_ai');
+  if (element1) {
+    // 👇 Will scroll smoothly to the top of the next section
+    element1.scrollIntoView({ behavior: 'smooth' });
+  }
+
+}
+const scrollFinance = () => {
+  const element = document.getElementById('section_finance');
+  if (element) {
+    // 👇 Will scroll smoothly to the top of the next section
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+
+}
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -138,7 +188,7 @@ const handleOnClickSport=(props)=>{
             <ListItem key={text} disablePadding>
               <ListItemButton onClick={handleOnClickSport}>
                 <ListItemIcon>
-                  {index % 3 === 0 ? <SportsKabaddiIcon/>: <HistoryEduIcon/>}
+                  {index % 3 === 0 ? <SportsKabaddiIcon onClick={scrollSport} />: <HistoryEduIcon  onClick={scrollHistory}/>}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -151,7 +201,7 @@ const handleOnClickSport=(props)=>{
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  {index % 2 === 0 ? <ScienceIcon/> :<CurrencyBitcoinIcon/> }
+                  {index % 2 === 0 ? <ScienceIcon onClick={scrollScience }/> :<CurrencyBitcoinIcon onClick={scrollMeta}/> }
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -159,11 +209,11 @@ const handleOnClickSport=(props)=>{
           ))}
         </List>
         <List>
-          {['AI'].map((text, index) => (
+          {['AI','Finance'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  {index % 2 === 0 ? <SatelliteAltIcon/>:<></> }
+                  {index % 2 === 0 ? <SatelliteAltIcon onClick={scrollAi}/>:<CandlestickChartIcon onClick={scrollFinance}/> }
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>

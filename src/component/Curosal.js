@@ -4,7 +4,7 @@ import axios from 'axios'
 const Curosal = (props) => {
   const [news, setNews] = useState("");
   useEffect(() => {
-    const url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=0bb476f88cb84a17b59f65753e14e9d6&page=${3}&pageSize=6`;
+    const url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=c510fef9b03a499b84073f9c14b3dca7&page=${1}&pageSize=3`;
     async function fetchData() {
       try {
         const response = await axios.get(url);
@@ -19,39 +19,42 @@ const Curosal = (props) => {
   console.log(news)
 
   return (
-    <div>
+    <div className='container' > 
     
-      <div id="carouselExampleCaptions" className="carousel slide">
+      <div id="carouselExampleCaptions" className="carousel slide" >
         <div className="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
 
-        <div className="carousel-inner">
+        <div className="carousel-inner" >
 
-          <div className="carousel-item active" >
-            <img src="..." className="d-block w-100" alt="..." />
+          <div className="carousel-item active"  >
+            <img src={news[0].urlToImage?news[0].urlToImage:""} className="d-block w-100" alt="..." />
             <div className="carousel-caption d-none d-md-block">
-              <h5>the hero</h5>
-              <p></p>
+          
             </div>
+            <h2>{news[0].title?news[0].title:""}</h2>
+              <p></p>
           </div>
          
           <div className="carousel-item active" >
-            <img src="" className="d-block w-100" alt="..." />
+            <img src={news[1].urlToImage?news[1].urlToImage:""} className="d-block w-100" alt="..." />
             <div className="carousel-caption d-none d-md-block">
-              <h5>the zero</h5>
-              <p></p>
+             
             </div>
+            <h2>{news[1].title?news[1].title:""}</h2>
+              <p></p>
           </div>
           
           <div className="carousel-item active" >
-            <img src="" className="d-block w-100" alt="..." />
+            <img src={news[2].urlToImage?news[2].urlToImage:""} className="d-block w-100" alt="..." />
             <div className="carousel-caption d-none d-md-block">
-              <h5>the love</h5>
-              <p></p>
+             
             </div>
+            <h2>{news[2].title?news[2].title:""} </h2>
+              <p></p>
           </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
