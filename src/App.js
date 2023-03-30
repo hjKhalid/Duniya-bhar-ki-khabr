@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Navbar from './component/Navbar'
 import Sports from './component/Sports'
@@ -39,25 +39,14 @@ export const WeatherIcons = {
 
 
 function App(props) {
-
-
-
-
-
-
-
-
-
-
-
-  return (
+return (
     <>
       <div><Navbar />
 
-        <div  style={{ margin:"0 1rem 1rem", fontStyle: "italic", color: "red" }}>{Date(Date.now()).toString().slice(0, 18)}</div>
+        <div  style={{ margin:"0 1rem 1rem", fontStyle: "italic", color: "red" }}>{Date(Date.now()).toString().slice(0, 16)}</div>
 
-
-        
+        {/* <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={handleOnChange}></input>
+         */}
         <h1 className='' style={{ fontFamily: "cursive", textAlign: "center" }}>Top Headlines</h1>
         <Curosal />
         <div style={{ display: "flex", justifyContent: "space-between" }}>
