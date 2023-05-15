@@ -89,7 +89,7 @@ const WeatherInfoComponent = (props) => {
 };
 const WeatherComponent = (props) => {
     const {weather} = props;
-    const isDay = weather?.weather[0].icon?.includes('d')
+    const isDay = weather?.weather.icon?.includes('d')
     const getTime = (timeStamp) => {
         return `${new Date(timeStamp * 1000).getHours()} : ${new Date(timeStamp * 1000).getMinutes()}`
     }
@@ -98,9 +98,9 @@ const WeatherComponent = (props) => {
             <WeatherContainer>
                 <Condition>
                     <span>{`${Math.floor(weather?.main?.temp - 273)}°C`}</span>
-                    {`  |  ${weather?.weather[0].description}`}
+                    {`  |  ${weather?.weather.description}`}
                 </Condition>
-                <WeatherIcon src={WeatherIcons[weather?.weather[0].icon]}/>
+                <WeatherIcon src={WeatherIcons[weather?.weather.icon]}/>
             </WeatherContainer>
             <Location>{`${weather?.name}, ${weather?.sys?.country}`}</Location>
 

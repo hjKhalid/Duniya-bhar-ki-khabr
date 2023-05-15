@@ -47,12 +47,13 @@ export default function RecipeReviewCard(props) {
             <MoreVertIcon />
           </IconButton>
         }
-        title={props.title}
+        title={props.title.slice(0,50)}
         subheader={props.time}
       />
       <CardMedia
         component="img"
         height="194"
+        width="100"
         image={props.imageUrl}
         alt={props.imageAlts}
       />

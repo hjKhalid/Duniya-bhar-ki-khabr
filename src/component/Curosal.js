@@ -36,11 +36,11 @@ const Curosal = (props) => {
           {news ? news.map((e, i) => {
             return <div className="carousel-item active"  style={{height: "400px"}} key={i} >
               <img  style={{top:"0",left:"0",minHeight:"400px"}} src={e.urlToImage ? e.urlToImage : ""} className="d-block w-100 h-50" alt="..." />
-              <div className="carousel-caption d-dark d-md-block">
+              <div className="carousel-caption d-light d-md-block" style={{background:"white"}}>
 
-                <h2 style={{color:"black"}}>{e.title ? e.title : ""}</h2>
-                <p></p>
+              <h2 style={{color:"black"}}>{e.title ? e.title : ""}</h2>
               </div>
+           
             </div>
           }) :
             <div className="carousel-item active"  >

@@ -1,6 +1,6 @@
 
 
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import styled from "styled-components";
 import Axios from "axios";
 import CityComponent from "./CityComponent";
@@ -57,7 +57,8 @@ export const WeatherIcons = {
   
 export const Weather = () => {
     const [city, updateCity] = useState();
-    const [weather, updateWeather] = useState();
+    const [weather, updateWeather] = useState("");
+    
     const fetchWeather = async (e) => {
       e.preventDefault();
       const response = await Axios.get(
